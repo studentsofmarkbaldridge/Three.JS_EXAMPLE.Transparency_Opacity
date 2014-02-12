@@ -141,7 +141,9 @@ function init()
 	// TRANSPARENT GEOMETRY //
 	//////////////////////////
 	
-	// change the path to the texture to use in your own project or save it:
+	// the .png, below, contains alpha (transparency) information - for more on this, see
+	// http://docs.gimp.org/en/gimp-using-web-transparency.html
+	// image may be avaialable here:
 	// http://card.gda.itesm.mx/mark/baldridge/textures/transp.png
 	var transPlaneTexture = new THREE.ImageUtils.loadTexture( 'textures/transp.png' );
 	transPlaneTexture.wrapS = transPlaneTexture.wrapT = THREE.RepeatWrapping; 
@@ -157,7 +159,7 @@ function init()
 	// GROUND GEOMETRY //
 	/////////////////////
 	
-	// edit the path to the texture to use in your own project or save it at:
+	// image may be avaiaolable here:
 	// http://card.gda.itesm.mx/mark/baldridge/textures/crate.jpg
 	var groundTexture = new THREE.ImageUtils.loadTexture( 'textures/crate.jpg' );
 	groundTexture.wrapS = groundTexture.wrapT = THREE.RepeatWrapping; 
