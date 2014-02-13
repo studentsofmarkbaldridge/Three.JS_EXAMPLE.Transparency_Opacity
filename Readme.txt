@@ -10,5 +10,5 @@ Right Click and Drag to Orbit scene
 Left Click and Drag to Pan
 Scroll Wheel, Middle Click or Two Finger Track Drag to Zoom
 
-Transparency is demonstrated by the material of the verticle plane.
+Transparency is demonstrated by the material of the vertical plane.
 Press t key to demo Opacity change.

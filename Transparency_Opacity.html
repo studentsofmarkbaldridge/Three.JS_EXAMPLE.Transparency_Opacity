@@ -38,7 +38,6 @@
 // standard global variables
 var container, scene, camera, renderer, controls;
 var keyboard = new THREEx.KeyboardState();
-var clock = new THREE.Clock();
 
 // custom global variables
 var transPlane, plane02;
@@ -54,7 +53,7 @@ animate();
 ///////////////
 			
 function init() 
-{ 	// opens init
+{//<opens init
 
 	///////////
 	// SCENE //
@@ -66,14 +65,14 @@ function init()
 	// CAMERA //
 	////////////
 	
-	// next two lines: set the view size in pixels (custom or according to window size)
-	// cystom
+	// next: set the view size in pixels (custom or according to window size)
+	// custom:
 	// var SCREEN_WIDTH = 400, SCREEN_HEIGHT = 300;
-	// according to window size
+	// according to window size:
 	var SCREEN_WIDTH = window.innerWidth, SCREEN_HEIGHT = window.innerHeight;	
 	// camera attributes, as variabls
 	var VIEW_ANGLE = 45, ASPECT = SCREEN_WIDTH / SCREEN_HEIGHT, NEAR = 0.1, FAR = 20000;
-	// set up camera using these variabls
+	// set up camera using these variables
 	camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR);
 	// add the camera to the scene
 	scene.add(camera);
@@ -88,17 +87,16 @@ function init()
 	
 	// create and start the renderer; choose antialias setting; defaul tot canvas
 	if ( Detector.webgl )
-		renderer = new THREE.WebGLRenderer( {antialias:true} );
+	 	renderer = new THREE.WebGLRenderer( {antialias:true} ); 
 	else
 		renderer = new THREE.CanvasRenderer(); 
 		renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
-	
+		
 	// attach div element to variable to contain the renderer
 	container = document.getElementById( 'ThreeJS' );
 	// alternatively: to create the div at runtime, use:
 	// container = document.createElement( 'div' );
 	// document.body.appendChild( container );
-	
 	// attach renderer to the container div
 	container.appendChild( renderer.domElement );
 	
@@ -109,7 +107,7 @@ function init()
 	// automatically resize renderer
 	THREEx.WindowResize(renderer, camera);
 	// toggle full-screen on given key press
-	THREEx.FullScreen.bindKey({ charCode : 'm'.charCodeAt(0) });
+	THREEx.FullScreen.bindKey({ charCode : 'f'.charCodeAt(0) });
 	
 	//////////////
 	// CONTROLS //
@@ -139,7 +137,7 @@ function init()
 	// http://card.gda.itesm.mx/mark/baldridge/textures/transp.png
 	var transPlaneTexture = new THREE.ImageUtils.loadTexture( 'textures/transp.png' );
 	transPlaneTexture.wrapS = transPlaneTexture.wrapT = THREE.RepeatWrapping; 
-	// FrontSide texture means from ther other side, nothing's visible
+	// FrontSide texture means from the other side, nothing's visible
 	// also note the opacity set to 1 - try lower numbers for translucency
 	var transPlaneMaterial = new THREE.MeshBasicMaterial( { map: transPlaneTexture, side: THREE.FrontSide, transparent: true, opacity: 1 } );
 	var transPlaneGeometry = new THREE.PlaneGeometry( 100, 100, 1, 1 );
@@ -178,31 +176,31 @@ function init()
 	var skyBoxMaterial = new THREE.MeshBasicMaterial( { color: 0x9999ff, side: THREE.BackSide } );
 	var skyBox = new THREE.Mesh( skyBoxGeometry, skyBoxMaterial );
 	scene.add(skyBox);
-} 	// closes init
+} 	//<closes init
 
 function render() 
-{ 	// opens render	
+{//<opens render - which runs within animate	
 	renderer.render( scene, camera );
-} 	//closes render
+}//<closes render
 
 function animate() 
-{	// opens animate
+{//<opens animate
     requestAnimationFrame( animate );		
 	update();
 	render();
-}	// closes animate
+}//<closes animate
 
 function update()
-{	// opens update - which runs within animate 
+{//<opens update - which runs within animate 
 	// keypress functionality provided by THREEx.KeyboardState.js
 	if ( keyboard.pressed( "t" ) )
-	{	// opens keyboard conditional
+	{//<opens keyboard conditional
 		// lowers transPlane overall opacity
 		transPlane.material.opacity -= 0.1;
-	} 	// closes keyboard transitional	
+	}//<closes keyboard transitional	
 	// Controls provided by OrbitControls.js	
 	controls.update();
-} 	// closes update
+} 	//<closes update
 
 </script>
 
